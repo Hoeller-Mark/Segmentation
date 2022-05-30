@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.32-07" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" namespace="" author="thomas" created="2022-05-30" changedby="thomas" changed="2022-05-30" origin="Structorizer 3.32-07" text="&#34;RegionGrowing&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<while text="&#34;as long as there are non-analyzed seeds&#34;" comment="" color="ffffff" disabled="0">
+			<qWhile>
+				<instruction text="&#34;set a threshold&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;get a seed from your array of seed points (use .pop(0))&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;in the resulting image, set the pixel with the seed coordinates to 255&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;put the current seed in your data structure of analyzed pixels&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<for text="&#34;foreach direction in neighborhood&#34;" comment="" counterVar="direction" startValue="" stepConst="" style="TRAVERSAL" insep="in" color="ffffff" disabled="0">
+					<qFor>
+						<instruction text="&#34;calculate the current pixel coordinates from your seed and the direction&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+						<alternative text="&#34;If current pixel is outside &#34;,&#34;the image dimensions&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;continue (next for-loop)&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+						<alternative text="&#34;If current pixel hasn't been analyzed &#34;,&#34;and is below the threshold&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;in the resulting image, set the current pixel to 255&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;integrate the current pixel to your data structure of analyzed pixels&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;append the current pixel to your array of seeds (use .append(...))&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+					</qFor>
+				</for>
+			</qWhile>
+		</while>
+	</children>
+</root>
